@@ -1,14 +1,177 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.App {
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  color: #ffc818;
+  background-color: #020202;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+
+main {
+  flex: auto;
+  background-color: #2d2d2d;
+}
+
+footer {
+  color: #ffc818;
+  background-color: #020202;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+body {
+  height: 100%;
+}
+
+.search {
+  padding: 70px 0;
+  color: #ffc818;
+  text-align: center;
+}
+
+/*************
+* Responsive *
+*************/
+
+/* For mobile */
+.colm1 {
+  width: 8.33%;
+}
+.colm2 {
+  width: 16.66%;
+}
+.colm3 {
+  width: 25%;
+}
+.colm4 {
+  width: 33.33%;
+}
+.colm5 {
+  width: 41.66%;
+}
+.colm6 {
+  width: 50%;
+}
+.colm7 {
+  width: 58.33%;
+}
+.colm8 {
+  width: 66.66%;
+}
+.colm9 {
+  width: 75%;
+}
+.colm10 {
+  width: 83.33%;
+}
+.colm11 {
+  width: 91.66%;
+}
+.colm12 {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+  .colt1 {
+    width: 8.33%;
+  }
+  .colt2 {
+    width: 16.66%;
+  }
+  .colt3 {
+    width: 25%;
+  }
+  .colt4 {
+    width: 33.33%;
+  }
+  .colt5 {
+    width: 41.66%;
+  }
+  .colt6 {
+    width: 50%;
+  }
+  .colt7 {
+    width: 58.33%;
+  }
+  .colt8 {
+    width: 66.66%;
+  }
+  .colt9 {
+    width: 75%;
+  }
+  .colt10 {
+    width: 83.33%;
+  }
+  .colt11 {
+    width: 91.66%;
+  }
+  .colt12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  /* For desktop: */
+  .col1 {
+    width: 8.33%;
+  }
+  .col2 {
+    width: 16.66%;
+  }
+  .col3 {
+    width: 25%;
+  }
+  .col4 {
+    width: 33.33%;
+  }
+  .col5 {
+    width: 41.66%;
+  }
+  .col6 {
+    width: 50%;
+  }
+  .col7 {
+    width: 58.33%;
+  }
+  .col8 {
+    width: 66.66%;
+  }
+  .col9 {
+    width: 75%;
+  }
+  .col10 {
+    width: 83.33%;
+  }
+  .col11 {
+    width: 91.66%;
+  }
+  .col12 {
+    width: 100%;
+  }
 }
