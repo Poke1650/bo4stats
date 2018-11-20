@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Icon } from 'semantic-ui-react';
 
 class Footer extends Component {
   render() {
     return (
       <footer className="col12 colm12 colt12">
-        <p>&#9400; Antoine Gagnon 2018</p>
+        <a href="www.github.com/Poke1650/bo4stats">Fork on Github <Icon name="github" size="large"/></a>
       </footer>
     );
   }
