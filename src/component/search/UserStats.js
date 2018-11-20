@@ -151,9 +151,7 @@ class UserStats extends Component {
   }
 }
 
-function accuracy(hit, miss) {
-  console.log(hit, miss);
-  //I guess they never miss, uh?
+function accuracy(hit, miss) { //I guess they never miss, uh?
   let accuracy = hit / miss;
   let percent = (accuracy * 100).toFixed(2);
   return `${percent}%`;
