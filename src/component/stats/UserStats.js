@@ -3,6 +3,8 @@ import CodAPI from "../../api/cod-api/CodAPI";
 import { Table } from "semantic-ui-react";
 import moment from "moment";
 
+import StatRow from "./StatRow";
+
 class UserStats extends Component {
   constructor(props) {
     super(props);
@@ -39,6 +41,12 @@ class UserStats extends Component {
 
   render() {
     const { error, isLoaded, data } = this.state;
+
+    const userxdata = {
+      users: this.state.users,
+      data: data
+    };
+
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -56,19 +64,17 @@ class UserStats extends Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              <Table.Row>
-                <Table.Cell>Longest Killstreak</Table.Cell>
-                {this.state.users.map(user => (
-                  <Table.Cell>{data[user].stats.longestkillstreak}</Table.Cell>
-                ))}
-              </Table.Row>
+              <StatRow
+                data={userxdata}
+                stat="longestkillstreak"
+                title="Longest Killstreak"
+              />
 
-              <Table.Row>
-                <Table.Cell>Current win streak</Table.Cell>
-                {this.state.users.map(user => (
-                  <Table.Cell>{data[user].stats.curwinstreak}</Table.Cell>
-                ))}
-              </Table.Row>
+              <StatRow
+                data={userxdata}
+                stat="curwinstreak"
+                title="Current win streak"
+              />
 
               <Table.Row>
                 <Table.Cell>Playtime</Table.Cell>
@@ -108,12 +114,7 @@ class UserStats extends Component {
                 ))}
               </Table.Row>
 
-              <Table.Row>
-                <Table.Cell>Total kills</Table.Cell>
-                {this.state.users.map(user => (
-                  <Table.Cell>{data[user].stats.kills}</Table.Cell>
-                ))}
-              </Table.Row>
+              <StatRow data={userxdata} stat="kills" title="Total kills" />
 
               <Table.Row>
                 <Table.Cell>Assists</Table.Cell>
@@ -151,7 +152,8 @@ class UserStats extends Component {
   }
 }
 
-function accuracy(hit, miss) { //I guess they never miss, uh?
+function accuracy(hit, miss) {
+  //I guess they never miss, uh?
   let accuracy = hit / miss;
   let percent = (accuracy * 100).toFixed(2);
   return `${percent}%`;
@@ -169,11 +171,5 @@ function time(seconds) {
   let hours = Math.floor(duration.asHours() - days * 24);
   return `${days}d ${hours}h`;
 }
-
-/**
-
-Assists: ekia - kills (x%)
-accuracy
- */
 
 export default UserStats;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SearchBox from "./search/SearchBox";
-import UserStats from "./search/UserStats";
+import UserStats from "./stats/UserStats";
 
 class Content extends Component {
   render() {
