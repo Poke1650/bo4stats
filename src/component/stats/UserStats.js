@@ -3,7 +3,8 @@ import CodAPI from "../../api/cod-api/CodAPI";
 import { Table } from "semantic-ui-react";
 import moment from "moment";
 
-import StatRow from "./StatRow";
+import SimpleStatRow from "./SimpleStatRow";
+import RatioStatRow from "./RatioStatRow";
 
 class UserStats extends Component {
   constructor(props) {
@@ -64,13 +65,13 @@ class UserStats extends Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              <StatRow
+              <SimpleStatRow
                 data={userxdata}
                 stat="longestkillstreak"
                 title="Longest Killstreak"
               />
 
-              <StatRow
+              <SimpleStatRow
                 data={userxdata}
                 stat="curwinstreak"
                 title="Current win streak"
@@ -83,27 +84,17 @@ class UserStats extends Component {
                 ))}
               </Table.Row>
 
-              <Table.Row>
-                <Table.Cell>K/D</Table.Cell>
-                {this.state.users.map(user => (
-                  <Table.Cell>
-                    {(data[user].stats.kills / data[user].stats.deaths).toFixed(
-                      2
-                    )}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
+              <RatioStatRow
+                data={userxdata}
+                stats={["kills", "deaths"]}
+                title="K/D"
+              />
 
-              <Table.Row>
-                <Table.Cell>EKIA/D</Table.Cell>
-                {this.state.users.map(user => (
-                  <Table.Cell>
-                    {(data[user].stats.ekia / data[user].stats.deaths).toFixed(
-                      2
-                    )}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
+              <RatioStatRow
+                data={userxdata}
+                stats={["ekia", "deaths"]}
+                title="EKIA/D"
+              />
 
               <Table.Row>
                 <Table.Cell>Accuracy</Table.Cell>
@@ -114,7 +105,11 @@ class UserStats extends Component {
                 ))}
               </Table.Row>
 
-              <StatRow data={userxdata} stat="kills" title="Total kills" />
+              <SimpleStatRow
+                data={userxdata}
+                stat="kills"
+                title="Total kills"
+              />
 
               <Table.Row>
                 <Table.Cell>Assists</Table.Cell>
@@ -125,16 +120,11 @@ class UserStats extends Component {
                 ))}
               </Table.Row>
 
-              <Table.Row>
-                <Table.Cell>W/L</Table.Cell>
-                {this.state.users.map(user => (
-                  <Table.Cell>
-                    {(data[user].stats.wins / data[user].stats.losses).toFixed(
-                      2
-                    )}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
+              <RatioStatRow
+                data={userxdata}
+                stats={["wins", "losses"]}
+                title="W/L"
+              />
 
               <Table.Row>
                 <Table.Cell>Prestige-Level</Table.Cell>
