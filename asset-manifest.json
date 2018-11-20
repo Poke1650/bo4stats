@@ -1,16 +1,16 @@
 {
-  "main.css": "/bo4stats/static/css/main.b308804b.chunk.css",
-  "main.js": "/bo4stats/static/js/main.ae1f8b9f.chunk.js",
-  "main.js.map": "/bo4stats/static/js/main.ae1f8b9f.chunk.js.map",
+  "main.css": "/bo4stats/static/css/main.32448c1d.chunk.css",
+  "main.js": "/bo4stats/static/js/main.9ba3d070.chunk.js",
+  "main.js.map": "/bo4stats/static/js/main.9ba3d070.chunk.js.map",
   "static/css/1.a5dba9a3.chunk.css": "/bo4stats/static/css/1.a5dba9a3.chunk.css",
-  "static/js/1.17195c0d.chunk.js": "/bo4stats/static/js/1.17195c0d.chunk.js",
-  "static/js/1.17195c0d.chunk.js.map": "/bo4stats/static/js/1.17195c0d.chunk.js.map",
+  "static/js/1.34b24940.chunk.js": "/bo4stats/static/js/1.34b24940.chunk.js",
+  "static/js/1.34b24940.chunk.js.map": "/bo4stats/static/js/1.34b24940.chunk.js.map",
   "runtime~main.js": "/bo4stats/static/js/runtime~main.160440c7.js",
   "runtime~main.js.map": "/bo4stats/static/js/runtime~main.160440c7.js.map",
   "static/media/semantic.min.css": "/bo4stats/static/media/brand-icons.a1a749e8.svg",
+  "static/css/main.32448c1d.chunk.css.map": "/bo4stats/static/css/main.32448c1d.chunk.css.map",
   "static/css/1.a5dba9a3.chunk.css.map": "/bo4stats/static/css/1.a5dba9a3.chunk.css.map",
-  "static/css/main.b308804b.chunk.css.map": "/bo4stats/static/css/main.b308804b.chunk.css.map",
   "index.html": "/bo4stats/index.html",
-  "precache-manifest.db625ee5cd5e78f68ab3e65144d8c5fe.js": "/bo4stats/precache-manifest.db625ee5cd5e78f68ab3e65144d8c5fe.js",
+  "precache-manifest.0221899ad7cc64ba83247853fc801a97.js": "/bo4stats/precache-manifest.0221899ad7cc64ba83247853fc801a97.js",
   "service-worker.js": "/bo4stats/service-worker.js"
 }
