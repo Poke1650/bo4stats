@@ -19,12 +19,19 @@ class UserStats extends Component {
   }
 
   query() {
+
+    this.setState({error: null})
     let querries = [];
 
     this.state.users.forEach(user => {
       querries.push(
         CodAPI.getUserStats(user).then(
           result => {
+            if (result.code === 1001) {
+              //Error, user not found
+              this.setState({ error : {message: `User ${user} not found!`}});
+              return;
+            }
             this.state.data[user] = result;
           },
           error => {
@@ -44,7 +51,9 @@ class UserStats extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({ users: newProps.users, isLoaded: false }, () => this.query());
+    this.setState({ users: newProps.users, isLoaded: false }, () =>
+      this.query()
+    );
   }
 
   render() {
@@ -56,11 +65,9 @@ class UserStats extends Component {
     };
 
     if (error) {
-      return <div>Error: {error.message}</div>;
+      return <div class="errorBox">Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return (
-        <Loader active inline='centered' />
-      )
+      return <Loader active inline="centered" />;
     } else {
       return (
         <div>
