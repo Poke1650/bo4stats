@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import { Icon, Input, Button, Dropdown } from "semantic-ui-react";
 
 class SearchBox extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      savedSearches: this.getStoredSearches()
+    };
+  }
+
   getStoredSearches() {
     let searches = localStorage.getItem("searches");
     return searches === null ? [] : JSON.parse(searches);
@@ -14,13 +22,15 @@ class SearchBox extends Component {
     let searchArray = searches === null ? [] : JSON.parse(searches);
     searchArray.push({ id: 1, value: query, text: query });
     localStorage.setItem("searches", JSON.stringify(searchArray));
+
+    this.setState({savedSearches: this.getStoredSearches()}); //Update stored searches
   }
 
   deleteQuery() {}
 
   updateQuery = (e, data) => {
     document.getElementById("query").value = data.value;
-  }
+  };
 
   render() {
     return (
@@ -52,7 +62,7 @@ class SearchBox extends Component {
             className="col4 colt12 colm12"
             placeholder="Searches"
             selection
-            options={this.getStoredSearches()}
+            options={this.state.savedSearches}
             onChange={this.updateQuery}
           />
           <Button onClick={() => this.saveQuery()} className="col1" icon>
