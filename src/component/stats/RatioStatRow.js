@@ -10,7 +10,7 @@ class RatioStatRow extends Component {
     let title = this.props.title;
     return (
       <Table.Row>
-        <Table.Cell>{title}</Table.Cell>
+        <Table.Cell collapsing>{title}</Table.Cell>
         {users.map(user => (
           <Table.Cell>
             {this.ratio(data[user].stats[stats[0]], data[user].stats[stats[1]], precision)}

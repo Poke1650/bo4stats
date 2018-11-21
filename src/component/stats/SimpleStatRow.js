@@ -9,7 +9,7 @@ class SimpleStatRow extends Component {
     let title = this.props.title;
     return (
       <Table.Row>
-        <Table.Cell>{title}</Table.Cell>
+        <Table.Cell collapsing>{title}</Table.Cell>
         {users.map(user => (
           <Table.Cell>{data[user].stats[stat]}</Table.Cell>
         ))}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CodAPI from "../../api/cod-api/CodAPI";
-import { Table } from "semantic-ui-react";
+import { Table, Loader } from "semantic-ui-react";
 import moment from "moment";
 
 import SimpleStatRow from "./SimpleStatRow";
@@ -14,11 +14,11 @@ class UserStats extends Component {
       shouldUpdate: true,
       isLoaded: false,
       data: [],
-      users: ["izotov#1214", "ozakin#11581", "cremz#1991", "yskio#1216"]
+      users: this.props.users
     };
   }
 
-  componentDidMount() {
+  query() {
     let querries = [];
 
     this.state.users.forEach(user => {
@@ -35,9 +35,16 @@ class UserStats extends Component {
     });
 
     Promise.all(querries).then(() => {
-      this.state.isLoaded = true;
-      this.forceUpdate();
+      this.setState({ isLoaded: true });
     });
+  }
+
+  componentDidMount() {
+    this.query();
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({ users: newProps.users, isLoaded: false }, () => this.query());
   }
 
   render() {
@@ -51,7 +58,9 @@ class UserStats extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return (
+        <Loader active inline='centered' />
+      )
     } else {
       return (
         <div>
@@ -60,7 +69,7 @@ class UserStats extends Component {
               <Table.Row>
                 <Table.HeaderCell />
                 {this.state.users.map(user => (
-                  <Table.HeaderCell>{user}</Table.HeaderCell>
+                  <Table.HeaderCell key={user}>{user}</Table.HeaderCell>
                 ))}
               </Table.Row>
             </Table.Header>
@@ -78,7 +87,7 @@ class UserStats extends Component {
               />
 
               <Table.Row>
-                <Table.Cell>Playtime</Table.Cell>
+                <Table.Cell collapsing>Playtime</Table.Cell>
                 {this.state.users.map(user => (
                   <Table.Cell>{time(data[user].stats.timeplayed)}</Table.Cell>
                 ))}
@@ -97,7 +106,7 @@ class UserStats extends Component {
               />
 
               <Table.Row>
-                <Table.Cell>Accuracy</Table.Cell>
+                <Table.Cell collapsing>Accuracy</Table.Cell>
                 {this.state.users.map(user => (
                   <Table.Cell>
                     {accuracy(data[user].stats.hits, data[user].stats.misses)}
@@ -112,7 +121,7 @@ class UserStats extends Component {
               />
 
               <Table.Row>
-                <Table.Cell>Assists</Table.Cell>
+                <Table.Cell collapsing>Assists</Table.Cell>
                 {this.state.users.map(user => (
                   <Table.Cell>
                     {assists(data[user].stats.ekia, data[user].stats.kills)}
@@ -127,7 +136,7 @@ class UserStats extends Component {
               />
 
               <Table.Row>
-                <Table.Cell>Prestige-Level</Table.Cell>
+                <Table.Cell collapsing>Prestige-Level</Table.Cell>
                 {this.state.users.map(user => (
                   <Table.Cell>
                     {data[user].stats.prestige} - {data[user].stats.level}

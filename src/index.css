@@ -8,6 +8,7 @@ body {
 
 .App {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
 }
 
@@ -52,6 +53,14 @@ body {
   padding: 50px 0;
   color: #ffc818;
   text-align: center;
+}
+
+.searchInput {
+    text-align: center;
+}
+
+.padding-top {
+    padding-top: 10px;
 }
 
 /*************
