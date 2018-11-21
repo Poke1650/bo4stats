@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/bo4stats/static/media/icons.faff9214.woff"
   },
   {
-    "revision": "0a7aa4b56ebf48d3c1e6",
-    "url": "/bo4stats/static/css/main.1ed93d24.chunk.css"
+    "revision": "3cc0eddefee017dcc59c",
+    "url": "/bo4stats/static/css/main.a655338c.chunk.css"
   },
   {
     "revision": "a1a749e89f578a49306ec2b055c073da",
     "url": "/bo4stats/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "a4b80d43b34711a35590",
-    "url": "/bo4stats/static/js/1.a4b80d43.chunk.js"
+    "revision": "ac681938ce79f611885b",
+    "url": "/bo4stats/static/js/1.ac681938.chunk.js"
   },
   {
     "revision": "160440c768995c620fcc",
@@ -44,8 +44,8 @@ self.__precacheManifest = [
     "url": "/bo4stats/static/media/icons.0ab54153.woff2"
   },
   {
-    "revision": "0a7aa4b56ebf48d3c1e6",
-    "url": "/bo4stats/static/js/main.0a7aa4b5.chunk.js"
+    "revision": "3cc0eddefee017dcc59c",
+    "url": "/bo4stats/static/js/main.3cc0edde.chunk.js"
   },
   {
     "revision": "e8c322de9658cbeb8a774b6624167c2c",
@@ -56,12 +56,12 @@ self.__precacheManifest = [
     "url": "/bo4stats/static/media/brand-icons.a046592b.woff"
   },
   {
-    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
-    "url": "/bo4stats/static/media/icons.b87b9ba5.ttf"
-  },
-  {
     "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
     "url": "/bo4stats/static/media/icons.8e3c7f55.eot"
+  },
+  {
+    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
+    "url": "/bo4stats/static/media/icons.b87b9ba5.ttf"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
@@ -80,11 +80,11 @@ self.__precacheManifest = [
     "url": "/bo4stats/static/media/icons.962a1bf3.svg"
   },
   {
-    "revision": "a4b80d43b34711a35590",
-    "url": "/bo4stats/static/css/1.880900e2.chunk.css"
+    "revision": "ac681938ce79f611885b",
+    "url": "/bo4stats/static/css/1.a421784c.chunk.css"
   },
   {
-    "revision": "a2f0938b99638e6071ea8406abca9bb4",
+    "revision": "7b02812e1036c7d798ab6652cec3d714",
     "url": "/bo4stats/index.html"
   }
 ];
