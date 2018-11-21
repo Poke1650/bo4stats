@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { Icon, Input, Button, Dropdown } from "semantic-ui-react";
+import { Icon, Input, Button, Dropdown, Confirm } from "semantic-ui-react";
+import { codeBlock } from "common-tags";
 
 class SearchBox extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      savedSearches: this.getStoredSearches()
+      savedSearches: this.getStoredSearches(),
+      clearOpen: false
     };
   }
 
@@ -23,10 +25,18 @@ class SearchBox extends Component {
     searchArray.push({ id: 1, value: query, text: query });
     localStorage.setItem("searches", JSON.stringify(searchArray));
 
-    this.setState({savedSearches: this.getStoredSearches()}); //Update stored searches
+    this.setState({ savedSearches: this.getStoredSearches() }); //Update stored searches
   }
 
-  deleteQuery() {}
+  show = () => this.setState({ clearOpen: true });
+  handleConfirm = () => {
+    localStorage.removeItem("searches");
+    this.setState({
+      savedSearches: this.getStoredSearches(),
+      clearOpen: false
+    });
+  };
+  handleCancel = () => this.setState({ clearOpen: false });
 
   updateQuery = (e, data) => {
     document.getElementById("query").value = data.value;
@@ -35,7 +45,11 @@ class SearchBox extends Component {
   render() {
     return (
       <div className="search">
-        <h1>Search users</h1>
+        <h2>Compare players</h2>
+        <p>
+          Enter battlenet usernames with the tag separated by a comma <pre>,</pre><br />
+          Example: <pre>Poke#1650, YourUser#3654</pre>
+        </p>
         <div className="col12 colt12 colm12">
           <Input
             id="query"
@@ -53,7 +67,7 @@ class SearchBox extends Component {
                 }
               />
             }
-            placeholder="Separated by , or spaces"
+            placeholder="Usernames separated by commas"
           />
         </div>
 
@@ -69,11 +83,22 @@ class SearchBox extends Component {
             Save
             <Icon name="save outline" />
           </Button>
-          <Button onClick={() => this.deleteQuery()} className="col1" icon>
-            Delete
+          <Button onClick={this.show} className="col1" icon>
+            Clear
             <Icon name="delete" />
           </Button>
+          <Confirm
+            content="You are about to remove ALL your saved searches, continue?"
+            cancelButton="No"
+            confirmButton="Yes, Delete all"
+            dimmer
+            open={this.state.clearOpen}
+            onCancel={this.handleCancel}
+            onConfirm={this.handleConfirm}
+          />
         </div>
+        <p className="padding-top">Save your search by clicking "Save"<br />Select a saved search in the box to load it</p>
+        <p>Support for PSN/XBL and Steam comming soon!</p>
       </div>
     );
   }

@@ -63,6 +63,11 @@ body {
     padding-top: 10px;
 }
 
+pre {
+    display: inline;
+    margin: 0;
+}
+
 /*************
 * Responsive *
 *************/

@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <header className="col12 colm12 colt12 header">
-        <h1>BO4Stats</h1>
+        <h1>BO4 Stats comparator</h1>
       </header>
     );
   }
